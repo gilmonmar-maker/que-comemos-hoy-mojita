@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué comemos hoy, Mojita?</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🍹 ¿Qué comemos hoy, Mojita?</h1>
+      <p class="subtitle">Tu asistente personal de comidas</p>
+    </header>
+
+    <main id="app">
+      <section id="welcome-screen" class="screen active">
+        <div class="welcome-content">
+          <h2>¡Bienvenido!</h2>
+          <p>Voy a hacerte 10 preguntas simples para entender qué te apetece comer hoy.</p>
+          <button id="start-btn" class="btn btn-primary">Comenzar</button>
+          <button id="load-profile-btn" class="btn btn-secondary">Cargar perfil existente</button>
+        </div>
+      </section>
+
+      <section id="questions-screen" class="screen">
+        <div class="questions-container">
+          <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+          <p id="question-counter" class="question-counter">Pregunta 1 de 10</p>
+          <h2 id="question-text"></h2>
+          <div class="question-options">
+            <button class="btn btn-option" data-answer="yes">Sí</button>
+            <button class="btn btn-option" data-answer="no">No</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="recommendations-screen" class="screen">
+        <div class="recommendations-container">
+          <h2>Mis Recomendaciones para Hoy</h2>
+          <div id="dishes-grid" class="dishes-grid"></div>
+          <button id="get-more-btn" class="btn btn-primary" style="display: none; margin-top: 20px;">Obtener más sugerencias</button>
+        </div>
+      </section>
+
+      <section id="dish-detail-screen" class="screen">
+        <button id="back-btn" class="btn btn-secondary" style="margin-bottom: 20px;">← Volver</button>
+        <div class="dish-detail-container">
+          <img id="dish-image" src="" alt="Plato" class="dish-image-detail">
+          <h2 id="dish-name"></h2>
+          <p id="dish-description" class="dish-description"></p>
+          <div class="dish-info">
+            <p><strong>Tipo:</strong> <span id="dish-type"></span></p>
+            <p><strong>Origen:</strong> <span id="dish-origin"></span></p>
+            <p><strong>Tiempo de preparación:</strong> <span id="dish-prep-time"></span></p>
+            <p><strong>Dificultad:</strong> <span id="dish-difficulty"></span></p>
+          </div>
+          <div class="dish-actions">
+            <button id="love-btn" class="btn btn-success">❤️ Me encanta</button>
+            <button id="skip-btn" class="btn btn-warning">⏭️ Saltar</button>
+            <button id="dislike-btn" class="btn btn-danger">👎 No me gusta</button>
+            <a id="recipe-link" href="" target="_blank" class="btn btn-recipe">📖 Ver Receta</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
